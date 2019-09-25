@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Submission 03</string>
+    <string name="tab_movie">Movies</string>
+    <string name="tab_tv">TV Shows</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_poster">Poster</string>
+    <string name="title_movies">Movies</string>
+    <string name="title_tv_shows">TV Shows</string>
+    <string name="title_release">Date</string>
+    <string name="title_genre">Genre</string>
+    <string name="title_overview">Overview</string>
+    <string name="title_user_score">Rating</string>
+    <string name="title_duration">Duration</string>
+
+    <string name="label_title">Label Title</string>
+    <string name="label_overview">Label Overview</string>
+    <string name="label_genre">Label Genre</string>
+    <string name="label_release_date">Label Release Date</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="test_movie_fragment">Hello from Test Movie Fragment</string>
+    <string name="list_movie_fragment">List Movie in Movie Fragment</string>
+    <string name="list_tv_in_fragment_tv">List TV Show in Freagmen Movie</string>
+</resources>
