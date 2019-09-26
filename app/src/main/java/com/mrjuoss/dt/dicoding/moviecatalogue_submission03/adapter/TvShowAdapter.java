@@ -1,6 +1,7 @@
 package com.mrjuoss.dt.dicoding.moviecatalogue_submission03.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,10 +44,13 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
     @Override
     public void onBindViewHolder(@NonNull TvShowViewHolder holder, int position) {
         holder.bind(mDataTvShow.get(position));
+        Log.d(TAG, "onBindViewHolderTvShow: "+mDataTvShow.get(position));
     }
 
     @Override
     public int getItemCount() {
+
+        Log.d(TAG, "getItemCount TV Show: "+mDataTvShow.size());
         return mDataTvShow.size();
     }
 

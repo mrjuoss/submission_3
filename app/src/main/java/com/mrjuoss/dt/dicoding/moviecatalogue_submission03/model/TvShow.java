@@ -5,7 +5,8 @@ import android.os.Parcelable;
 
 import org.json.JSONObject;
 
-import org.json.*;public class TvShow implements Parcelable {
+public class TvShow implements Parcelable {
+    private int id;
     private String name;
     private String firstAirDate;
     private String overview;
@@ -13,11 +14,13 @@ import org.json.*;public class TvShow implements Parcelable {
 
     public TvShow(JSONObject object) {
         try {
+            int id = object.getInt("id");
             String name = object.getString("name");
             String firstAirDate = object.getString("first_air_date");
             String overview = object.getString("overview");
             String poster = object.getString("poster_path");
 
+            this.id=id;
             this.name = name;
             this.firstAirDate = firstAirDate;
             this.overview = overview;
@@ -61,6 +64,17 @@ import org.json.*;public class TvShow implements Parcelable {
     }
 
 
+    public TvShow() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -68,16 +82,15 @@ import org.json.*;public class TvShow implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
         dest.writeString(this.name);
         dest.writeString(this.firstAirDate);
         dest.writeString(this.overview);
         dest.writeString(this.poster);
     }
 
-    public TvShow() {
-    }
-
     protected TvShow(Parcel in) {
+        this.id = in.readInt();
         this.name = in.readString();
         this.firstAirDate = in.readString();
         this.overview = in.readString();

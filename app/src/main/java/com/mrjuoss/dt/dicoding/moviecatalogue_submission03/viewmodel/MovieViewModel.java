@@ -34,7 +34,7 @@ public class MovieViewModel extends ViewModel {
                 try {
                     String result = new String(responseBody);
                     JSONObject responseObject = new JSONObject(result);
-                    JSONArray list = responseObject.getJSONArray("list");
+                    JSONArray list = responseObject.getJSONArray("results");
 
                     Log.d("2. onSuccess: ", result);
 

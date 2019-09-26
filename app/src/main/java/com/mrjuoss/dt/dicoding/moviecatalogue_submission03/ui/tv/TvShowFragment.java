@@ -32,7 +32,6 @@ public class TvShowFragment extends Fragment {
     private TvShowAdapter adapterTvShow;
     private ProgressBar progressBarTvShow;
     private TvShowViewModel tvShowViewModel;
-
     private ArrayList<TvShow> mDataTvShow = new ArrayList<>();
 
     public TvShowFragment() {

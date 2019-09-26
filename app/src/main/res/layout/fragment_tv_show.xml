@@ -14,7 +14,8 @@
         android:id="@+id/progress_bar_tv"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_gravity="center_vertical|center_horizontal" />
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_tv"
