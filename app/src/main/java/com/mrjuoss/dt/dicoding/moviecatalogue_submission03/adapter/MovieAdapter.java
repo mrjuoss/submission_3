@@ -56,14 +56,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     }
 
     public class MovieViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView imgPoster;
-        TextView textTitle, textRelease;
+        ImageView imgPosterMovie;
+        TextView textTitleMovie, textReleaseMovie, textOverviewMovie;
 
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgPoster = itemView.findViewById(R.id.image_poster);
-            textTitle = itemView.findViewById(R.id.text_title);
-            textRelease = itemView.findViewById(R.id.text_release);
+            imgPosterMovie = itemView.findViewById(R.id.image_poster);
+            textTitleMovie = itemView.findViewById(R.id.text_title);
+            textReleaseMovie = itemView.findViewById(R.id.text_release);
+            textOverviewMovie = itemView.findViewById(R.id.text_overview_movie);
 
             itemView.setOnClickListener(this);
         }
@@ -72,12 +73,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         public void bind(Movie movie) {
             String url_poster = "https://image.tmdb.org/t/p/w185"+ movie.getPoster();
 
-            textTitle.setText(movie.getTitle());
-            textRelease.setText(movie.getReleaseDate());
+            textTitleMovie.setText(movie.getTitle());
+            textReleaseMovie.setText(movie.getReleaseDate());
+            textOverviewMovie.setText(movie.getOverview());
 
             Glide.with(itemView.getContext())
                  .load(url_poster)
-                 .into(imgPoster);
+                 .into(imgPosterMovie);
         }
 
         @Override

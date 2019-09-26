@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,29 +30,35 @@ public class TvShowFragment extends Fragment {
 
     private final String TAG = getClass().getSimpleName();
 
-    private TvShowAdapter adapterTvShow;
+    private TvShowAdapter tvShowAdapter;
     private ProgressBar progressBarTvShow;
     private TvShowViewModel tvShowViewModel;
+    private RecyclerView recyclerViewTv;
     private ArrayList<TvShow> mDataTvShow = new ArrayList<>();
 
     public TvShowFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        adapterTvShow = new TvShowAdapter(getContext(), mDataTvShow);
         View view = inflater.inflate(R.layout.fragment_tv_show, container, false);
-        RecyclerView recyclerViewTvShow = view.findViewById(R.id.recycler_view_tv);
-        recyclerViewTvShow.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        recyclerViewTvShow.setAdapter(adapterTvShow);
 
         progressBarTvShow = view.findViewById(R.id.progress_bar_tv);
+
+        recyclerViewTv = view.findViewById(R.id.recycler_view_tv);
+        recyclerViewTv.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerViewTv.setHasFixedSize(true);
+
+        tvShowAdapter = new TvShowAdapter(getContext(), mDataTvShow);
+        recyclerViewTv.setAdapter(tvShowAdapter);
+
         tvShowViewModel = ViewModelProviders.of(this).get(TvShowViewModel.class);
-        tvShowViewModel.setListTvShow("EXTRA_TV_SHOW");
+        tvShowViewModel.getTvShows().observe(this, getTvShow);
+        tvShowViewModel.setTvShows("EXTRA_TV_SHOW");
+        tvShowAdapter.notifyDataSetChanged();
 
         showLoading(true);
         return view;
@@ -61,9 +68,10 @@ public class TvShowFragment extends Fragment {
         @Override
         public void onChanged(ArrayList<TvShow> tvShows) {
             if (tvShows != null) {
-                adapterTvShow.setmDataTvShow(tvShows);
+                Log.d(TAG, "onChanged !!!");
+                tvShowAdapter.setDataTvShow(tvShows);
+                showLoading(false);
             }
-            showLoading(false);
         }
     };
 

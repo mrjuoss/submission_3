@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.ui.movie.MovieFragment;
-import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.ui.movie.TestMovieFragment;
 import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.ui.tv.TvShowFragment;
 
 public class TabPageAdapter extends FragmentPagerAdapter {
@@ -25,7 +24,6 @@ public class TabPageAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 return new MovieFragment();
-                //return new TestMovieFragment();
             case 1:
                 return new TvShowFragment();
             default:

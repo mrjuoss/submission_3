@@ -21,7 +21,7 @@ public class Movie implements Parcelable {
             String poster = object.getString("poster_path");
             String backdrop = object.getString("backdrop_path");
             String overview = object.getString("overview");
-            String releaseDate = object.getString("overview");
+            String releaseDate = object.getString("release_date");
             double rating = object.getDouble("vote_average");
 
             this.id = id;

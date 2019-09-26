@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import org.json.JSONObject;
 
 public class TvShow implements Parcelable {
+
     private int id;
     private String name;
     private String firstAirDate;

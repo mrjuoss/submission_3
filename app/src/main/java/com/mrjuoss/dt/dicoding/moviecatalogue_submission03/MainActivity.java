@@ -1,9 +1,14 @@
 package com.mrjuoss.dt.dicoding.moviecatalogue_submission03;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.PagerAdapter;
@@ -65,9 +70,23 @@ public class MainActivity extends AppCompatActivity implements MovieFragment.OnF
         });
     }
 
-
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_change_setting) {
+            Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+            startActivity(mIntent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

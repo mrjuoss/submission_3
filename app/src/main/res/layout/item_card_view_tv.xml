@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view_tv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -32,35 +33,27 @@
         <TextView
             android:id="@+id/text_title_tv"
             style="@style/TextContent.Title"
-            android:layout_marginStart="16dp"
             android:text="@string/title_tv_shows"
             app:layout_constraintStart_toEndOf="@+id/image_poster_tv"
             app:layout_constraintTop_toTopOf="@+id/layout_container_tv" />
 
         <TextView
-            android:id="@+id/text_genre_tv"
-            style="@style/TextContent.Genre"
-            app:layout_constraintEnd_toEndOf="@+id/layout_container_tv"
-            app:layout_constraintStart_toEndOf="@+id/image_poster_tv"
-            app:layout_constraintTop_toBottomOf="@+id/text_title_tv"
-            android:text="@string/title_genre"/>
-
-        <TextView
             android:id="@+id/text_release_tv"
             style="@style/TextContent.Release"
+            android:layout_marginTop="12dp"
             android:text="@string/title_release"
-            android:textAlignment="textEnd"
-            app:layout_constraintEnd_toEndOf="@+id/layout_container_tv"
-            app:layout_constraintTop_toTopOf="@+id/layout_container_tv" />
+            app:layout_constraintStart_toEndOf="@+id/image_poster_tv"
+            app:layout_constraintTop_toBottomOf="@+id/text_title_tv" />
 
         <TextView
             android:id="@+id/text_overview_tv"
             style="@style/TextContent.Overview"
             android:text="@string/title_overview"
+            android:maxLines="3"
             app:layout_constraintBottom_toBottomOf="@+id/layout_container_tv"
             app:layout_constraintEnd_toEndOf="@+id/layout_container_tv"
             app:layout_constraintStart_toEndOf="@+id/image_poster_tv"
-            app:layout_constraintTop_toBottomOf="@+id/text_genre_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/text_release_tv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -29,7 +29,11 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
         this.mDataTvShow = mDataTvShow;
     }
 
-    public void setmDataTvShow(ArrayList<TvShow> items) {
+    public ArrayList<TvShow> getDataTvShow() {
+        return mDataTvShow;
+    }
+
+    public void setDataTvShow(ArrayList<TvShow> items) {
         mDataTvShow.clear();
         mDataTvShow.addAll(items);
         notifyDataSetChanged();
@@ -49,32 +53,34 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
 
     @Override
     public int getItemCount() {
-
         Log.d(TAG, "getItemCount TV Show: "+mDataTvShow.size());
         return mDataTvShow.size();
     }
 
     public class TvShowViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView imagePoster;
-        TextView textName, textFirstAirDate, textOverview;
+        ImageView imagePosterTv;
+        TextView textNameTv, textReleaseTv, textOverviewTv;
         public TvShowViewHolder(@NonNull View itemView) {
             super(itemView);
-            imagePoster = itemView.findViewById(R.id.image_poster_tv);
-            textName = itemView.findViewById(R.id.text_title_tv);
-            textFirstAirDate = itemView.findViewById(R.id.text_release_tv);
-            textOverview = itemView.findViewById(R.id.text_overview_tv);
+            imagePosterTv = itemView.findViewById(R.id.image_poster_tv);
+            textNameTv = itemView.findViewById(R.id.text_title_tv);
+            textReleaseTv = itemView.findViewById(R.id.text_release_tv);
+            textOverviewTv = itemView.findViewById(R.id.text_overview_tv);
 
             itemView.setOnClickListener(this);
         }
 
         public void bind(TvShow tvShow) {
-            String url_poster = "https://image.tmdb.org/t/p/w185" + tvShow.getPoster();
+            String url_poster_tv = "https://image.tmdb.org/t/p/w185" + tvShow.getPoster();
 
-            textName.setText(tvShow.getName());
-            textFirstAirDate.setText(tvShow.getFirstAirDate());
-            textOverview.setText(tvShow.getOverview());
+            textNameTv.setText(tvShow.getName());
+            textReleaseTv.setText(tvShow.getFirstAirDate());
+            textOverviewTv.setText(tvShow.getOverview());
 
-            Glide.with(itemView.getContext()).load(url_poster).placeholder(R.color.colorPrimary).dontAnimate().into(imagePoster);
+            Glide.with(itemView.getContext())
+                    .load(url_poster_tv)
+                    .placeholder(R.color.colorPrimary)
+                    .dontAnimate().into(imagePosterTv);
         }
 
         @Override

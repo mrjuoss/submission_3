@@ -13,11 +13,6 @@
         android:layout_gravity="center_horizontal|center_vertical"
         android:visibility="gone"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/list_movie_fragment" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_movie"
         android:layout_width="match_parent"

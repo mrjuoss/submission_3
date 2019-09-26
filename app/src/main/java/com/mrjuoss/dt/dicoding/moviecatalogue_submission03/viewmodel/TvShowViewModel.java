@@ -21,30 +21,34 @@ public class TvShowViewModel extends ViewModel {
 
     private final String TAG = getClass().getSimpleName();
     private static final String API_KEY = "3ef012749c492463ebf91e83dabe2be7";
-    private MutableLiveData<ArrayList<TvShow>> listTvShow = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<TvShow>> listTvShows = new MutableLiveData<>();
 
-    public void setListTvShow(final String tvShows) {
+    public void setTvShows(final String tvShows) {
         AsyncHttpClient client = new AsyncHttpClient();
 
-        final ArrayList<TvShow> listItem = new ArrayList<>();
+        final ArrayList<TvShow> listItems = new ArrayList<>();
 
         String url = "https://api.themoviedb.org/3/discover/tv?api_key=" +API_KEY+ "&language=en-US";
 
-        Log.d(TAG, "setListTvShow: "+ url);
+        Log.d(TAG, "setTvShow: "+ url);
+
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
                     String result = new String(responseBody);
                     JSONObject responseObject = new JSONObject(result);
-                    JSONArray list = responseObject.getJSONArray("results");
+                    JSONArray listTvShow = responseObject.getJSONArray("results");
 
-                    for (int i = 0; i < list.length(); i++) {
-                        JSONObject tvShow = list.getJSONObject(i);
-                        TvShow tvShowItems = new TvShow(tvShow);
-                        listItem.add(tvShowItems);
+                    Log.d(TAG, " 2. onSuccess: " +result);
+
+                    for (int i = 0; i < listTvShow.length(); i++) {
+                        JSONObject tvShowObject = listTvShow.getJSONObject(i);
+                        TvShow tvShowItems = new TvShow(tvShowObject);
+                        listItems.add(tvShowItems);
                     }
-                    listTvShow.postValue(listItem);
+                    listTvShows.postValue(listItems);
+                    Log.d(TAG, "onSuccess: "+listItems);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -57,7 +61,7 @@ public class TvShowViewModel extends ViewModel {
         });
     }
 
-    public LiveData<ArrayList<TvShow>> getTvShow() {
-        return listTvShow;
+    public LiveData<ArrayList<TvShow>> getTvShows() {
+        return listTvShows;
     }
 }
