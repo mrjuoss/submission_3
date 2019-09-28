@@ -26,4 +26,6 @@
     <string name="list_movie_fragment">List Movie in Movie Fragment</string>
     <string name="list_tv_in_fragment_tv">List TV Show in Freagmen Movie</string>
     <string name="change_language">Change Settings</string>
+    <string name="rating">Rating</string>
+    <string name="label_rating_movie">Label Rating</string>
 </resources>

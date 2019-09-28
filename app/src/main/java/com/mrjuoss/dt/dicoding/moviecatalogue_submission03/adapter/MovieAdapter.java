@@ -1,6 +1,7 @@
 package com.mrjuoss.dt.dicoding.moviecatalogue_submission03.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.R;
 import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.model.Movie;
+import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.ui.movie.MovieDetailActivity;
 
 import java.util.ArrayList;
 
@@ -84,7 +86,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         @Override
         public void onClick(View v) {
+            int position = getAdapterPosition();
+            Movie movie = mData.get(position);
 
+            Intent intentDetailMovie = new Intent(itemView.getContext(), MovieDetailActivity.class);
+            intentDetailMovie.putExtra(MovieDetailActivity.EXTRA_MOVIE, movie);
+            itemView.getContext().startActivity(intentDetailMovie);
         }
     }
 }
