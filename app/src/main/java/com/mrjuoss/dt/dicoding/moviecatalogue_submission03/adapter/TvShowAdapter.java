@@ -1,6 +1,7 @@
 package com.mrjuoss.dt.dicoding.moviecatalogue_submission03.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.R;
 import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.model.TvShow;
+import com.mrjuoss.dt.dicoding.moviecatalogue_submission03.ui.tv.TvShowDetailActivity;
 
 import java.util.ArrayList;
 
@@ -86,11 +88,11 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvShowView
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-
             TvShow tvShow = mDataTvShow.get(position);
-            tvShow.setName(tvShow.getName());
-            tvShow.setOverview(tvShow.getOverview());
 
+            Intent intentDetailTv = new Intent(itemView.getContext(), TvShowDetailActivity.class);
+            intentDetailTv.putExtra(TvShowDetailActivity.EXTRA_TV_SHOW, tvShow);
+            itemView.getContext().startActivity(intentDetailTv);
         }
     }
 }

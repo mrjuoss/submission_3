@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Submission 03</string>
+    <string name="tab_movie">Film</string>
+    <string name="tab_tv">Acara TV</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Beranda</string>
+    <string name="title_notifications">Notifikasi</string>
+    <string name="title_poster">Poster</string>
+    <string name="title_movies">Film</string>
+    <string name="title_tv_shows">Acara TV</string>
+    <string name="title_release">Tanggal Rilis</string>
+    <string name="title_overview">Sinopsis</string>
+    <string name="title_user_score">Rating</string>
+    <string name="rating">Rating</string>
+
+    <string name="change_language">Ubah Pengaturan</string>
+</resources>

@@ -12,6 +12,7 @@ public class TvShow implements Parcelable {
     private String firstAirDate;
     private String overview;
     private String poster;
+    private double voteAverage;
 
     public TvShow(JSONObject object) {
         try {
@@ -20,12 +21,15 @@ public class TvShow implements Parcelable {
             String firstAirDate = object.getString("first_air_date");
             String overview = object.getString("overview");
             String poster = object.getString("poster_path");
+            double voteAverage = object.getDouble("vote_average");
 
             this.id=id;
             this.name = name;
             this.firstAirDate = firstAirDate;
             this.overview = overview;
             this.poster = poster;
+            this.voteAverage = voteAverage;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -76,6 +80,14 @@ public class TvShow implements Parcelable {
         this.id = id;
     }
 
+    public double getVoteAverage() {
+        return voteAverage;
+    }
+
+    public void setVoteAverage(double voteAverage) {
+        this.voteAverage = voteAverage;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -88,6 +100,7 @@ public class TvShow implements Parcelable {
         dest.writeString(this.firstAirDate);
         dest.writeString(this.overview);
         dest.writeString(this.poster);
+        dest.writeDouble(this.voteAverage);
     }
 
     protected TvShow(Parcel in) {
@@ -96,6 +109,7 @@ public class TvShow implements Parcelable {
         this.firstAirDate = in.readString();
         this.overview = in.readString();
         this.poster = in.readString();
+        this.voteAverage = in.readDouble();
     }
 
     public static final Creator<TvShow> CREATOR = new Creator<TvShow>() {

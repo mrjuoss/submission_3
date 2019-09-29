@@ -30,7 +30,7 @@ public class TvShowViewModel extends ViewModel {
 
         String url = "https://api.themoviedb.org/3/discover/tv?api_key=" +API_KEY+ "&language=en-US";
 
-        Log.d(TAG, "setTvShow: "+ url);
+        Log.d(TAG, "URL: "+ url);
 
         client.get(url, new AsyncHttpResponseHandler() {
             @Override

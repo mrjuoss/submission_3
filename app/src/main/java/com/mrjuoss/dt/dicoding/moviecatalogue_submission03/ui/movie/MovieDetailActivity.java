@@ -2,7 +2,6 @@ package com.mrjuoss.dt.dicoding.moviecatalogue_submission03.ui.movie;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
